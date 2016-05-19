@@ -6,7 +6,7 @@
 
 	cd $HOME
 	# Update following github.dev.com according to your .ssh/config file
-	git clone origin git@github.dev.com:pascal-brand-st-dev/github_scripts
+	git clone git@github.dev.com:pascal-brand-st-dev/github_scripts
 	source $HOME/github_scripts/optee_admin_env.source
 	my_optee_admin_clone
 
