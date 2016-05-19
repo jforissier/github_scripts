@@ -4,11 +4,11 @@
 
 ### Installation
 
-    cd $HOME
-    # Update following github.dev.com according to your .ssh/config file
-    git clone origin git@github.dev.com:pascal-brand-st-dev/github_scripts
-    source $HOME/github_scripts/optee_admin_env.source
-    my_optee_admin_clone
+	cd $HOME
+	# Update following github.dev.com according to your .ssh/config file
+	git clone origin git@github.dev.com:pascal-brand-st-dev/github_scripts
+	source $HOME/github_scripts/optee_admin_env.source
+	my_optee_admin_clone
 
 The file `.ssh/config` must contain your github OP-TEE administration
 account setup, something like
@@ -69,4 +69,18 @@ contains several commits and to push on another branch than master):
 	git push upstream adminpr_$prnumber:master
 	# Then close the pull-request from github interface, using the github
 	# OP-TEE admin account, with the comment "Manually merged"
+
+
+
+### Setting tags
+
+_**EARLY VERSION - NEVER USED IN A REAL RELEASE**_
+
+- Update, in `optee_os`:
+	- Release notes in `CHANGELOG.md`
+	- `CFG_OPTEE_REVISION_MAJOR` and `CFG_OPTEE_REVISION_MINOR`
+- Create tags on components: `$HOME/github_scripts/my_optee_admin_make_tag.sh 3.0.0`
+- Create stable manifest: `$HOME/github_scripts/my_optee_admin_make_stable.sh 3.0.0`
+
+
 
