@@ -6,8 +6,9 @@
 
 	cd $HOME
 	# Update following github.dev.com according to your .ssh/config file
+	mkdir -p $HOME/git_clone/pascal-brand-st-dev && cd $HOME/git_clone/pascal-brand-st-dev
 	git clone git@github.dev.com:pascal-brand-st-dev/github_scripts
-	source $HOME/github_scripts/optee_admin_env.source
+	source $HOME/git_clone/pascal-brand-st-dev/github_scripts/optee_admin_env.source
 	my_optee_admin_clone
 
 The file `.ssh/config` must contain your github OP-TEE administration
@@ -33,7 +34,7 @@ Then the steps to merge are:
 
 1/ Setup the script environment
 
-	source $HOME/github_scripts/optee_admin_env.source
+	source $HOME/git_clone/pascal-brand-st-dev/github_scripts/optee_admin_env.source
 
 2/ Check the pull-request is ok, by fetching and opening gitk
 
@@ -79,8 +80,8 @@ _**EARLY VERSION - NEVER USED IN A REAL RELEASE**_
 - Update, in `optee_os`:
 	- Release notes in `CHANGELOG.md`
 	- `CFG_OPTEE_REVISION_MAJOR` and `CFG_OPTEE_REVISION_MINOR`
-- Create tags on components: `$HOME/github_scripts/my_optee_admin_make_tag.sh 3.0.0`
-- Create stable manifest: `$HOME/github_scripts/my_optee_admin_make_stable.sh 3.0.0`
+- Create tags on components: `$HOME/git_clone/pascal-brand-st-dev/github_scripts/my_optee_admin_make_tag.sh 3.0.0`
+- Create stable manifest: `$HOME/git_clone/pascal-brand-st-dev/github_scripts/my_optee_admin_make_stable.sh 3.0.0`
 
 
 
