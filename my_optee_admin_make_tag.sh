@@ -49,14 +49,14 @@ do
 	git fetch --all &> /dev/null
 	git checkout upstream/master &> /dev/null
 
-	echo "Check tag exists on remote..."
+	echo "Check tag $MY_TAG does not exist on remote..."
 	if [[ `git ls-remote --tags upstream 2>/dev/null | grep -cF refs/tags/$MY_TAG` != 0 ]]; then
-		echo "Tag $TAG_NAME exists on remote. Please remove it carefully if required"
+		echo "Tag $MY_TAG exists on remote. Please remove it manually carefully if required"
 		echo "Abort..."
 		exit 1
 	fi
 
-	echo "Check tag exists locally..."
+	echo "Check tag $MY_TAG does not exist locally..."
 	if [[ `git tag 2>/dev/null | grep -cF $MY_TAG` != 0 ]]; then
 		echo "Tag $MY_TAG exists locally"
 		read -p "Do you want to remove the local tag? (Y/N) "

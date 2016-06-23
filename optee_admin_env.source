@@ -61,6 +61,7 @@ export PROMPT_COMMAND='echo -ne "\033]0;OP-TEE ADMIN\007"'
 export MY_OPTEE_ROOT=/local/Security/OP-TEE/ADMIN
 export MY_OPTEE_REFERENCE_REPO=/local/Security/devel/optee-ref
 export MY_OPTEE_RELEASE_ROOT=/local/Security/OP-TEE/optee_release
+export MY_OPTEE_ADMIN_SCRIPT_ROOT=$HOME/git_clone/pascal-brand-st-dev/github_scripts
 # Host used in .ssh/config
 export MY_OPTEE_ADMIN_GITHUB_ADDRESS=github.admin.com
 export MY_OPTEE_DEV_GITHUB_ADDRESS=github.dev.com
@@ -73,6 +74,7 @@ echo ====================================== OP-TEE Administration Configuration
 echo MY_OPTEE_ROOT =                 $MY_OPTEE_ROOT
 echo MY_OPTEE_REFERENCE_REPO =       $MY_OPTEE_REFERENCE_REPO
 echo MY_OPTEE_RELEASE_ROOT =         $MY_OPTEE_RELEASE_ROOT
+echo MY_OPTEE_ADMIN_SCRIPT_ROOT =    $MY_OPTEE_ADMIN_SCRIPT_ROOT
 echo MY_OPTEE_ADMIN_GITHUB_ADDRESS = $MY_OPTEE_ADMIN_GITHUB_ADDRESS
 echo MY_OPTEE_DEV_GITHUB_ADDRESS =   $MY_OPTEE_DEV_GITHUB_ADDRESS
 echo MY_OPTEE_ADMIN_GITHUB_ACCOUNT = $MY_OPTEE_ADMIN_GITHUB_ACCOUNT

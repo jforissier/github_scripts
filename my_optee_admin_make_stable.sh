@@ -41,7 +41,7 @@ do
   ln -s manifests/$MY_REPO_TARGET.xml manifest.xml
   cd $MY_OPTEE_RELEASE_ROOT && repo sync -j4 --force-sync --no-clone-bundle
   cd $MY_OPTEE_RELEASE_ROOT && repo manifest -o .repo/manifests/${MY_REPO_TARGET}_stable.xml -r
-  $HOME/common_files/bin/my_optee_fix_stable.py -t $MY_TAG -i .repo/manifests/${MY_REPO_TARGET}_stable.xml
+  $MY_OPTEE_ADMIN_SCRIPT_ROOT/my_optee_fix_stable.py -t $MY_TAG -i .repo/manifests/${MY_REPO_TARGET}_stable.xml
   cd $MY_OPTEE_RELEASE_ROOT/.repo/manifests
   git add ${MY_REPO_TARGET}_stable.xml
   git commit -s -m "${MY_REPO_TARGET}_stable.xml"

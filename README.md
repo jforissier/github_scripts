@@ -4,10 +4,14 @@
 
 ### Installation
 
-	cd $HOME
 	# Update following github.dev.com according to your .ssh/config file
 	mkdir -p $HOME/git_clone/pascal-brand-st-dev && cd $HOME/git_clone/pascal-brand-st-dev
 	git clone git@github.dev.com:pascal-brand-st-dev/github_scripts
+
+Update accordingly the variables defined at the end of
+`$HOME/git_clone/pascal-brand-st-dev/github_scripts/optee_admin_env.source`,
+and then
+
 	source $HOME/git_clone/pascal-brand-st-dev/github_scripts/optee_admin_env.source
 	my_optee_admin_clone
 
@@ -75,13 +79,32 @@ contains several commits and to push on another branch than master):
 
 ### Setting tags
 
-_**EARLY VERSION - NEVER USED IN A REAL RELEASE**_
+1/ Update, in `optee_os`
 
-- Update, in `optee_os`:
-	- Release notes in `CHANGELOG.md`
-	- `CFG_OPTEE_REVISION_MAJOR` and `CFG_OPTEE_REVISION_MINOR`
-- Create tags on components: `$HOME/git_clone/pascal-brand-st-dev/github_scripts/my_optee_admin_make_tag.sh 3.0.0`
-- Create stable manifest: `$HOME/git_clone/pascal-brand-st-dev/github_scripts/my_optee_admin_make_stable.sh 3.0.0`
+- Release notes in `CHANGELOG.md`
+- `CFG_OPTEE_REVISION_MAJOR` and `CFG_OPTEE_REVISION_MINOR`
 
+2/ Setup the script environment
 
+	source $HOME/git_clone/pascal-brand-st-dev/github_scripts/optee_admin_env.source
+
+3/ Create stable manifests, running the following command. This command will
+   create the stable manifest on the provided tag (3.0.0 as an example).
+   Please follow the instructions given at the end of the script to create the
+   pull-request with the new stable manifests.
+
+	$MY_OPTEE_ADMIN_SCRIPT_ROOT/my_optee_admin_make_stable.sh 3.0.0
+
+4/ Create tags on components, running the following command. This command will
+   create a local tag using the provided tag (3.0.0 as an example). It tags
+   the remote master branch of optionally the manifest, optee_os, optee_client,
+   optee_test and build component. Few checks are performed (tag is not
+   already existing locally and remotely, `CHANGELOG.md` contains the tag,
+   REVISION numbers looks correct). Once the local tags are set by the script,
+   please follow the instruction to push the new tags on the remote.
+
+	$MY_OPTEE_ADMIN_SCRIPT_ROOT/my_optee_admin_make_tag.sh 3.0.0
+
+This final step is setting the tag on the remote master branch. It will be
+useful to enhance this feature in order to set a tag on another branch.
 
