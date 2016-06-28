@@ -47,7 +47,8 @@ function my_optee_admin_clone()
      git clone git@${MY_OPTEE_ADMIN_GITHUB_ADDRESS}:linaro-swg/patches_hikey         -o upstream
      git clone git@${MY_OPTEE_ADMIN_GITHUB_ADDRESS}:linaro-swg/linux                 -o upstream
      git clone git@${MY_OPTEE_ADMIN_GITHUB_ADDRESS}:linaro-swg/device-linaro-hikey   -o upstream
-
+     git clone git@${MY_OPTEE_ADMIN_GITHUB_ADDRESS}:linaro-swg/soc_term              -o upstream
+     
      my_git_add_upstream_pr_file
      cd ${MY_OPTEE_ROOT}
      for dir in ${MY_OPTEE_ROOT}/*

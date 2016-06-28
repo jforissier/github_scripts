@@ -54,7 +54,8 @@ Then the steps to merge are:
 	export prnumber=3   ; my_optee_admin_check ${MY_OPTEE_ROOT}/linux
 	export prnumber=1   ; my_optee_admin_check ${MY_OPTEE_ROOT}/patches_hikey
 	export prnumber=1   ; my_optee_admin_check ${MY_OPTEE_ROOT}/device-linaro-hikey
-
+	export prnumber=2   ; my_optee_admin_check ${MY_OPTEE_ROOT}/soc_term
+	
 3/ You may want to diff the pull-request outside of gitk
 
 	git difftool upstream/master upstream/pr/$prnumber
