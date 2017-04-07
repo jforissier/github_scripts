@@ -1,5 +1,5 @@
 #!/bin/bash -e
-export MY_ALLREPO='default fvp hikey hikey_debian juno mt8173-evb'
+export MY_ALLREPO='default qemu_v8 fvp hikey hikey_debian juno mt8173-evb rpi3 dra7xx'
 
 if [ -e "$MY_OPTEE_RELEASE_ROOT" ] ; then
 	echo "Remove the used directory first using"
