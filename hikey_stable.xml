@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch="https://github.com/96boards-hikey" name="96b-hk"/>
+  <remote fetch="https://github.com/96boards" name="96boards"/>
+  <remote fetch="git://busybox.net" name="busybox"/>
+  <remote fetch="https://github.com/linaro-swg" name="linaro-swg"/>
+  <remote fetch="https://github.com/OP-TEE" name="optee"/>
+  <remote fetch="git://git.savannah.gnu.org" name="savannah"/>
+  <remote fetch="git://git.code.sf.net/p/strace" name="sfnet"/>
+  
+  <default remote="optee" revision="master"/>
+  
+  <project name="arm-trusted-firmware" remote="96b-hk" revision="4adfdd06f11deb2ab6a056a68ed6f22dcb99a791" upstream="hikey"/>
+  <project name="build" revision="4b8b55361d2c557d305f2a6fb81ae53735d8d515" upstream="master">
+    <linkfile dest="build/Makefile" src="hikey.mk"/>
+  </project>
+  <project name="burn-boot" remote="96boards" revision="db522b114fdec4d06d0a1705501fedc277903453" upstream="master"/>
+  <project name="busybox" remote="busybox" revision="dbf5a6da6a4295ce26edd1ce34fde567d19afa02"/>
+  <project name="code" path="strace" remote="sfnet" revision="7f6f12a829c8f3ba2b8bd5d821e3f34ab197bccb" upstream="master"/>
+  <project name="edk2" remote="96boards" revision="7da6cdf18127ee52e79f3cf990c8d630fd037784" upstream="hikey"/>
+  <project name="gen_rootfs" remote="linaro-swg" revision="0e47dfb1a1dd72c06b9ceed4fd68bf7665e7ce6d" upstream="master"/>
+  <project name="grub" remote="savannah" revision="007f0b407f72314ec832d77e15b83ea40b160037" upstream="master"/>
+  <project name="hello_world" remote="linaro-swg" revision="a2c215b7ddd880cce8fca7913e817f47460bdd40" upstream="master"/>
+  <project name="l-loader" remote="96b-hk" revision="cddd213c1b820d5f224d20b38581c504552dd59e" upstream="master"/>
+  <project name="linux" remote="linaro-swg" revision="961993fde60ebd06715d1433f8eb265471a0f38c" upstream="optee"/>
+  <project name="optee_client" revision="1df4046bd729e866743454a18a71e72228e585fd" upstream="master"/>
+  <project name="optee_os" revision="1149e39f5d1a30ae02080896ab77479e09bec9a0" upstream="master"/>
+  <project name="optee_test" revision="213ca8aaf4eafe9d26af76db7b31d9595ce57e6f" upstream="master"/>
+  <project name="patches_hikey" remote="linaro-swg" revision="93d4254c66003cacd9f7e84dd6b5831ab43b5265" upstream="master"/>
+</manifest>

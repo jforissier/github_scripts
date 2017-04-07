@@ -66,8 +66,8 @@ export MY_OPTEE_RELEASE_ROOT=/mnt/sshd/devel/optee_projects/optee_release
 export MY_OPTEE_ADMIN_SCRIPT_ROOT=/mnt/sshd/devel/github_scripts
 # Host used in .ssh/config
 export MY_OPTEE_ADMIN_GITHUB_ADDRESS=github.admin.com
-export MY_OPTEE_DEV_GITHUB_ADDRESS=github.dev.com
 export MY_OPTEE_ADMIN_GITHUB_ACCOUNT=jbech-optee-adm
+export MY_OPTEE_DEV_GITHUB_ADDRESS=github.com
 export MY_OPTEE_DEV_GITHUB_ACCOUNT=jbech-linaro
 
 mkdir -p $MY_OPTEE_ROOT
