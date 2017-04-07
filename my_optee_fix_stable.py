@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import re
 
 def usage():
-    print("test.py -t <tag> -i <input.xml>")
+    print("test.py -t <tag> -i <input.xml> -n")
     print("Abort...")
     sys.exit(2)
 
@@ -55,13 +55,16 @@ class InputArgs:
 def main(argv):
     input_file = ''
     tag = ''
+    replace_rev = True
     try:
-        opts, args = getopt.getopt(argv,"ht:i:",["tag=","input="])
+        opts, args = getopt.getopt(argv,"ht:i:n",["tag=","input="])
     except getopt.GetoptError:
         usage()
     for opt, arg in opts:
         if opt == '-h':
             usage()
+        elif opt == '-n':
+            replace_rev = False
         elif opt in ("-i", "--input"):
             input_file = arg
         elif opt in ("-t", "--tag"):
@@ -80,7 +83,8 @@ def main(argv):
     BeautifulSoup.prettify = prettify
 
     input = InputArgs(input_file, tag)
-    input.replace_revision()
+    if replace_rev:
+        input.replace_revision()
     input.remove_upstream()
     input.backup_file(input_file + ".bak")
     input.save()

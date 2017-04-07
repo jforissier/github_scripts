@@ -14,6 +14,11 @@ if [[ "$1" == "" ]]; then
 fi;
 
 export MY_TAG=$1
+
+if [[ "$2" != "" ]]; then
+	export NO_REVISION_REPLACE=$2
+fi;
+
 echo "New tag will be $MY_TAG"
 read -p "Agree ? (Y/N) "
 
@@ -41,7 +46,13 @@ do
   ln -s manifests/$MY_REPO_TARGET.xml manifest.xml
   cd $MY_OPTEE_RELEASE_ROOT && repo sync -j4 --force-sync --no-clone-bundle
   cd $MY_OPTEE_RELEASE_ROOT && repo manifest -o .repo/manifests/${MY_REPO_TARGET}_stable.xml -r
-  $MY_OPTEE_ADMIN_SCRIPT_ROOT/my_optee_fix_stable.py -t $MY_TAG -i .repo/manifests/${MY_REPO_TARGET}_stable.xml
+  if [[ -z $NO_REVISION_REPLACE ]]; then
+	echo "Replace revsion"
+	$MY_OPTEE_ADMIN_SCRIPT_ROOT/my_optee_fix_stable.py -t $MY_TAG -i .repo/manifests/${MY_REPO_TARGET}_stable.xml
+  else
+	echo "Don't replace revsion"
+	$MY_OPTEE_ADMIN_SCRIPT_ROOT/my_optee_fix_stable.py -t $MY_TAG -i .repo/manifests/${MY_REPO_TARGET}_stable.xml -n
+  fi
   cd $MY_OPTEE_RELEASE_ROOT/.repo/manifests
   git add ${MY_REPO_TARGET}_stable.xml
   git commit -s -m "${MY_REPO_TARGET}_stable.xml"
