@@ -59,16 +59,17 @@ function my_optee_admin_clone()
      done;
 }
 
+TOP=/home/jerome/work/pascal_github_scripts
 export PROMPT_COMMAND='echo -ne "\033]0;OP-TEE ADMIN\007"'
-export MY_OPTEE_ROOT=/mnt/sshd/devel/optee-adm
-export MY_OPTEE_REFERENCE_REPO=/mnt/sshd/devel/optee_projects/reference
-export MY_OPTEE_RELEASE_ROOT=/mnt/sshd/devel/optee_projects/optee_release
-export MY_OPTEE_ADMIN_SCRIPT_ROOT=/mnt/sshd/devel/github_scripts
+export MY_OPTEE_ROOT=$TOP/optee-adm
+export MY_OPTEE_REFERENCE_REPO=$TOP/optee_projects/reference
+export MY_OPTEE_RELEASE_ROOT=$TOP/optee_projects/optee_release
+export MY_OPTEE_ADMIN_SCRIPT_ROOT=$TOP/github_scripts
 # Host used in .ssh/config
 export MY_OPTEE_ADMIN_GITHUB_ADDRESS=github.admin.com
-export MY_OPTEE_ADMIN_GITHUB_ACCOUNT=jbech-optee-adm
+export MY_OPTEE_ADMIN_GITHUB_ACCOUNT=jforissier
 export MY_OPTEE_DEV_GITHUB_ADDRESS=github.com
-export MY_OPTEE_DEV_GITHUB_ACCOUNT=jbech-linaro
+export MY_OPTEE_DEV_GITHUB_ACCOUNT=jforissier
 
 mkdir -p $MY_OPTEE_ROOT
 
