@@ -44,6 +44,12 @@ do
   cd $MY_OPTEE_RELEASE_ROOT/.repo
   rm -f manifest.xml
   ln -s manifests/$MY_REPO_TARGET.xml manifest.xml
+  # Clean qemu:
+  # qemu/dtc may be checked out separately by the manifest [1], in which case "repo sync" may fail with:
+  #   error: Cannot remove project "qemu": uncommitted changes are present
+  #      commit changes, then run sync again
+  # [1] First introduced in https://github.com/OP-TEE/manifest/commit/52b4d0783cdc
+  [ -e $MY_OPTEE_RELEASE_ROOT/qemu ] && cd $MY_OPTEE_RELEASE_ROOT/qemu && rm -rf dtc && git checkout -- dtc
   cd $MY_OPTEE_RELEASE_ROOT && repo sync -j4 --force-sync --no-clone-bundle
   cd $MY_OPTEE_RELEASE_ROOT && repo manifest -o .repo/manifests/${MY_REPO_TARGET}_stable.xml -r
   if [[ -z $NO_REVISION_REPLACE ]]; then
