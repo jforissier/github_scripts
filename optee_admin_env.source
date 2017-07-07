@@ -59,7 +59,7 @@ function my_optee_admin_clone()
      done;
 }
 
-TOP=/home/jerome/work/pascal_github_scripts
+TOP=$HOME/work/pascal_github_scripts
 export PROMPT_COMMAND='echo -ne "\033]0;OP-TEE ADMIN\007"'
 export MY_OPTEE_ROOT=$TOP/optee-adm
 export MY_OPTEE_REFERENCE_REPO=$TOP/optee_projects/reference
